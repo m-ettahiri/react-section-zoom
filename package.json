@@ -2,11 +2,34 @@
   "name": "react-section-zoom",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./lib/zoom.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack",
+    "start": "webpack --watch",
+    "test": "npm test"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "author": "Mohammed ETTAHIRI",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m-ettahiri/react-section-zoom.git"
+  },
+  "dependencies": {
+    "react": "^16.12.0",
+    "webpack": "^4.5.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.6.0",
+    "path": "^0.12.7",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "url-loader": "^4.1.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-node-externals": "^1.7.2"
+  }
 }

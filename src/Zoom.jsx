@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useReducer } from "react";
+import React, { useRef, useEffect, useReducer } from "react";
 import "./Zoom.css";
 import {NavBar} from "./components";
 import ZoomProvider from "./ZoomProvider/ZoomProvider";
@@ -11,17 +11,19 @@ import {
 function Zoom(props) {
   const zoomSectionRef = useRef(null);
   const elementToScaleRef = useRef(null);
-
   const [state, dispatch] = useReducer(zoomReducer, zoomStateInit);
+
   useEffect(() => {
     elementToScaleRef.current.style.transform = `scale(${state.scaleUnit})`;
   });
+
   useEffect(() => {
     if (!state.fullScreen.position) {
       elementToScaleRef.current.style.top = 50 + "px";
       elementToScaleRef.current.style.left = 50 + "px";
     }
   }, [state.fullScreen]);
+
   const handleMouseDown = (e) => {
     zoomSectionRef.current.style.cursor = "grab";
     dispatch({
@@ -47,9 +49,11 @@ function Zoom(props) {
     elementToScaleRef.current.style.left =
       e.clientX - state.elementLocation.x + "px";
   };
+
   const handleMouseLeave = (e) => {
     dispatch({ type: zoomActions.MOUSE_LEAVE });
   };
+
   return (
     <ZoomProvider store={{ state, dispatch }}>
       <NavBar />

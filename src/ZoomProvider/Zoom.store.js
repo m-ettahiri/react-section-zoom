@@ -7,7 +7,7 @@ const zoomStateInit = {
   isMouseDown: false,
   startMove: false,
   elementLocation: {},
-  fullScreen:  {}
+  fullScreen: {},
 };
 
 const zoomReducer = (state, action) => {
@@ -42,7 +42,7 @@ const zoomReducer = (state, action) => {
       };
 
     case zoomActions.FULL_SCREEN:
-        console.log('okk')
+      console.log("okk");
       return {
         ...state,
         fullScreen: {
@@ -51,14 +51,16 @@ const zoomReducer = (state, action) => {
           height: "100vh",
           top: 0,
           left: 0,
-          zIndex:'10000'
+          zIndex: "10000",
         },
       };
+
     case zoomActions.INIT_SCREEN:
-        return {
-            ...state,
-            fullScreen:{}
-        }
+      return {
+        ...state,
+        fullScreen: {},
+      };
+
     default:
       throw { message: "action error", action: action };
   }
